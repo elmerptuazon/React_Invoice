@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+// import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource, ListGuesser, EditGuesser } from 'react-admin';
+import jsonServerProvider from 'ra-data-json-server';
+import { UserList } from './component/users';
+import { PostList, PostEdit, PostCreate } from './component/posts';
+import { InvoiceList, InvoiceEdit, InvoiceCreate } from './component/invoice';
+import Dashboard from './component/dashboard';
+import authProvider from './component/authProvider';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+const dataProvider = jsonServerProvider('https://my-json-server.typicode.com/elmerptuazon/json_typicode');
+
+const App = () => (
+    <Admin dashboard={Dashboard} authProvider={authProvider} dataProvider={dataProvider}>
+        {/* <Resource name="users" list={ListGuesser} /> */}
+        <Resource name="users" list={UserList} />
+        {/* <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} /> */}
+        <Resource name="invoice" list={InvoiceList} edit={InvoiceEdit} create={InvoiceCreate} />
+    </Admin>
+);
 
 export default App;
