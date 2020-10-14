@@ -10,14 +10,14 @@ export default {
         //     console.log(res);
         // })
         
-        const requestOptions = {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        };
-        fetch('http://127.0.0.1:8000/api/invoice/index', requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data));
-        localStorage.setItem('username', username);
+        // const requestOptions = {
+        //     method: 'GET',
+        //     headers: { 'Content-Type': 'application/json' },
+        // };
+        // fetch('http://127.0.0.1:8000/api/invoice/index', requestOptions)
+        //     .then(response => response.json())
+        //     .then(data => console.log(data));
+        // localStorage.setItem('username', username);
         // accept all username/password combinations
         return Promise.resolve();
     },
