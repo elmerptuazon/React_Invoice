@@ -57,9 +57,9 @@ export const InvoiceCreate = props => (
             </ReferenceInput>
             <TextInput source="customer_name" />
             <TextInput source="product_name" />
-            <TextInput source="product_quantity" />
-            <TextInput source="product_price" />
-            <TextInput source="total_invoice_amount" />
+            <TextInput source="product_quantity" validate={validateNumber}/>
+            <TextInput source="product_price" validate={validateNumber}/>
+            <TextInput source="total_invoice_amount" validate={validateNumber}/>
         </SimpleForm>
     </Create>
 );
